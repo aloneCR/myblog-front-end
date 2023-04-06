@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./static/css/typo.css">
     <link rel="stylesheet" href="./static/css/animate.css">
     <link rel="stylesheet" href="./static/lib/prism/prism.css">
+    <link rel="stylesheet" href="./static/lib/tocbot/tocbot.css">
     <link rel="stylesheet" href="static/css/me.css">
 </head>
 <body>
@@ -64,25 +65,7 @@
             </div>
             <h2 class="ui header center aligned">我的第一篇博客</h2>
             <br>
-            <div id="content" class="typo typo-selection m-padded-lr-responsive m-padded-tb-large">
-
-                <h2 id="tagline" class="serif">一致化浏览器排版效果，构建最适合中文阅读的网页排版</h2>
-
-                <ol id="table">
-                    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
-                    <li><a href="#section2">排版实例</a>
-                        <ul>
-                            <li><a href="#section2-1">例1：论语学而篇第一</a></li>
-                            <li><a href="#section2-2">例2：英文排版</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#section3">附录</a>
-                        <ul>
-                            <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
-                            <li><a href="#appendix2">开源许可</a></li>
-                        </ul>
-                    </li>
-                </ol>
+            <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
 
                 <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
 
@@ -320,7 +303,7 @@ h5,h6{font-size:1em;}
 </code>
 </pre>
 
-                <h3 id="section3">三、附录</h3>
+                <h2 id="section3">三、附录</h2>
 
                 <h5 id="appendix1">1、<i class="serif">Typo.css</i> 排版偏重点</h5>
                 <table class="ui table" summary="Typo.css 排版偏重点">
@@ -522,7 +505,7 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
         </div>
-        <div class="ui bottom attached segment ">
+        <div id="comment-container" class="ui bottom attached segment ">
             <!--留言列表区域-->
             <div class="ui teal segment">
                 <div class="ui comments">
@@ -626,6 +609,21 @@ h5,h6{font-size:1em;}
     </div>
 </div>
 
+<!--悬浮的功能栏-->
+<div class="m-padded m-fixed m-right-bottom">
+    <div class="ui vertical icon buttons">
+        <button type="button" class="ui toc-btn teal button">目录</button>
+        <a href="#comment-container" class="ui teal button">留言</a>
+        <button class="ui icon teal button"><i class="weixin icon"></i></button>
+        <a href="#" class="ui teal button"><i class="chevron up icon"></i></a>
+    </div>
+</div>
+
+<!--目录-->
+<div class="ui toc-container flowing popup transition hidden" style="width: 250px !important;">
+    <ol class="js-toc"></ol>
+</div>
+
 <br><br>
 
 <!--底部footer-->
@@ -669,6 +667,7 @@ h5,h6{font-size:1em;}
 <script src="static/js/jquery-3.6.4.min.js"></script>
 <script src="static/semantic/dist/semantic.min.js"></script>
 <script src="./static/lib/prism/prism.js"></script>
+<script src="./static/lib/tocbot/tocbot.min.js"></script>
 
 <script>
     $('.menu.toggle').click(function () {
@@ -679,6 +678,23 @@ h5,h6{font-size:1em;}
         popup: $('.payQ.popup'),
         on: 'click',
         position: 'bottom center'
+    });
+
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+
+    $('.toc-btn').popup({
+        popup: $('.toc-container.popup'),
+        on: 'click',
+        position: 'left center'
     });
 </script>
 </body>
