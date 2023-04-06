@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情</title>
+    <link rel="stylesheet" href="static/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="static/css/me.css">
+</head>
+<body>
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="m-item right item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+        <div class="ui top attached segment">
+            <div class="ui horizontal link list">
+                <div class="item">
+                    <img src="https://picsum.photos/id/142/100/100" alt=""
+                         class="ui avatar image">
+                    <div class="content"><a href="#" class="header">骆小朋</a></div>
+                </div>
+                <div class="item">
+                    <i class="calendar icon"></i> 2023-03-31
+                </div>
+                <div class="item">
+                    <i class="eye icon"></i> 4593
+                </div>
+            </div>
+        </div>
+        <!--<div class="ui attached segment">-->
+        <!--  &lt;!&ndash;图片区域&ndash;&gt;-->
+        <!--  <img src="https://picsum.photos/id/18/800/400" alt="" class="ui fluid rounded image">-->
+        <!--</div>-->
+        <div class="ui attached padded segment">
+            <!--内容-->
+            <div class="ui right aligned basic segment">
+                <div class="ui right aligned orange basic label">原创</div>
+            </div>
+            <h2 class="ui header center aligned">我的第一篇博客</h2>
+            <br>
+            <div id="content" class="m-padded-lr-responsive m-padded-tb-large">
+                <h2>一、问题复现</h2>
+                <p>
+                    前两天访问我自己的博客，发现css样式全乱了，而且使用我这套代码的小伙伴们也出现了这个问题，如下图所示，css样式失效。
+                </p>
+                <h2>二、原因分析</h2>
+                <p>
+                    查看控制台，发现是加载不到 css、js 资源，包括 jquery 和 semantic-ui 的，之前都是直接引用官网的cdn，很明显是cdn出问题了
+
+
+                    这里用的是 jsdelivr 服务，这是经常使用这个 cdn 服务，一个快速且免费的服务，所有公开的javascript
+                    npm包和github仓库，都可以使用jsdelivr来作为静态资源服务器，而且免费、超快！我之前引用的 jQuery 和
+                    semantic
+                    就是通过这个 cdn 来加速的。
+
+                    但是前段时间 jsdelivr 挂了，根据网友反馈，涉及到使用 jsdelivr 服务的所有网站，都出现了问题，所以我的网站使用的
+                    semantic 的样式全部失效。
+                </p>
+                <h2>三、解决方法</h2>
+                <p>
+                    之前是通过 cdn 加速在线引用，既然 cdn 挂了，最稳妥的方法还是直接把资源下载到本地
+
+                    为了和以前保持一致，以前用的哪个版本，就下载哪个版本的资源，可以直接从GitHub上下载，我已经下载，放入了网盘，有需要的可以自行下载
+
+                    链接：https://pan.baidu.com/s/1EaJQmU_CmmTTqO8XdCtaMg 提取码：595d
+
+
+                    将静态资源文件导入项目中，导入后如下图所示
+
+
+                    将前端代码中涉及到这两个 cdn 引入的地方进行修改，把在线引用改为本地引用
+                </p>
+            </div>
+            <div class="m-padded-lr-responsive">
+                <div class="ui basic teal left pointing label">方法论</div>
+            </div>
+            <div class="ui center aligned basic segment">
+                <div id="payButton" class="ui orange basic circular button">赞赏</div>
+            </div>
+            <div class="ui payQ flowing popup transition hidden">
+                <div class="ui orange basic label">
+                    <div class="ui images" style="font-size: inherit !important;">
+                        <div class="image">
+                            <img src="./static/images/wechat.png" alt="" class="ui rounded bordered image"
+                                 style="width: 120px">
+                            <div>支付宝</div>
+                        </div>
+                        <div class="image">
+                            <img src="./static/images/wechat.png" alt="" class="ui rounded bordered image"
+                                 style="width: 120px">
+                            <div>微信</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="ui attached positive message">
+            <!--博客信息-->
+            <div class="ui middle aligned grid">
+                <div class="eleven wide column">
+                    <ui class="list">
+                        <li>作者: 骆小朋</li>
+                        <li>发表时间: 2023-3-31 09:14</li>
+                        <li>版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
+                        <li>公众号转载: 请在文末添加作者公众号二维码</li>
+                    </ui>
+                </div>
+                <div class="five wide column">
+                    <img src="./static/images/wechat.png" alt="" class="ui right floated rounded bordered image "
+                         style="width: 110px">
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached segment ">
+            <!--留言列表区域-->
+            <div class="ui teal segment">
+                <div class="ui comments">
+                    <h3 class="ui dividing header m-text-spaced">评论区</h3>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="./static/images/dog.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Matt</a>
+                            <div class="metadata">
+                                <span class="date">Today at 5:42PM</span>
+                            </div>
+                            <div class="text">
+                                How artistic!
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="./static/images/dog.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Elliot Fu</a>
+                            <div class="metadata">
+                                <span class="date">Yesterday at 12:30AM</span>
+                            </div>
+                            <div class="text">
+                                <p>This has been very useful for my research. Thanks as well!</p>
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="./static/images/dog.jpg">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Jenny Hess</a>
+                                    <div class="metadata">
+                                        <span class="date">Just now</span>
+                                    </div>
+                                    <div class="text">
+                                        Elliot you are always so right :)
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="./static/images/dog.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Joe Henderson</a>
+                            <div class="metadata">
+                                <span class="date">5 days ago</span>
+                            </div>
+                            <div class="text">
+                                Dude, this is awesome. Thanks so much
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--发布留言区域-->
+            <div class="ui form">
+                <div class="field">
+                    <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                </div>
+                <div class="fields">
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="nickname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" name="email" placeholder="邮箱">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布评论</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<!--底部footer-->
+<footer class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="./static/images/wechat.png" class="ui rounded image" alt="" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email: xpluo1949@gmail.com</a>
+                    <a href="#" class="item">QQ: 1466543680</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">
+                    这是我的个人博客，用于分享知识和生活。Kafka是由Apache软件基金会开发的一个开源流处理平台，由Scala和Java编写。
+                </p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - 2023 XSH Designed by Xp_luo</p>
+    </div>
+</footer>
+
+<script src="static/js/jquery-3.6.4.min.js"></script>
+<script src="static/semantic/dist/semantic.min.js"></script>
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('#payButton').popup({
+        popup: $('.payQ.popup'),
+        on: 'click',
+        position: 'bottom center'
+    });
+</script>
+</body>
+</html>
