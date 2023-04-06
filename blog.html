@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/semantic/dist/semantic.min.css">
     <link rel="stylesheet" href="./static/css/typo.css">
     <link rel="stylesheet" href="./static/css/animate.css">
+    <link rel="stylesheet" href="./static/lib/prism/prism.css">
     <link rel="stylesheet" href="static/css/me.css">
 </head>
 <body>
@@ -301,7 +302,7 @@
                     works nice as the
                     demo you're watching now. The following code is the best way to render typo in Chinese:
                 </p>
-                <pre>
+                <pre class="language-css"><code>
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
 h1,h2,h3,h4,h5,h6 {
     line-height:1;font-family:Arial,sans-serif;margin:1.4em 0 0.8em;
@@ -316,6 +317,7 @@ h5,h6{font-size:1em;}
 .typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr {
     margin:1em 0 0.6em;
 }
+</code>
 </pre>
 
                 <h3 id="section3">三、附录</h3>
@@ -666,6 +668,7 @@ h5,h6{font-size:1em;}
 
 <script src="static/js/jquery-3.6.4.min.js"></script>
 <script src="static/semantic/dist/semantic.min.js"></script>
+<script src="./static/lib/prism/prism.js"></script>
 
 <script>
     $('.menu.toggle').click(function () {
